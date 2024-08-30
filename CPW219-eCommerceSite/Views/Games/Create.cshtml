@@ -4,6 +4,13 @@
     ViewData["Title"] = "Create a new game";
 }
 
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @ViewData["Message"]
+    </div>
+}
+
 <h1>Create a new game</h1>
 <hr />
 <div class="row">
