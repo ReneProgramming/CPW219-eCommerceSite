@@ -31,7 +31,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Games" asp-action="Index">Game Catalog</a>
                         </li>
-                        @if(_httpContext.HttpContext.Session.GetString("Email") != null)
+                        @{
+                            string? userEmail = _httpContext.HttpContext.Session.GetString("Email");
+                        }
+                        @if(userEmail== null)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Members" asp-action="Register">Register</a>
@@ -44,7 +47,7 @@
                         else
                         {
                             <li>
-                                <p>Hello @_httpContext.HttpContext.Session.GetString("Email")</p>
+                                <p>Hello @userEmail</p>
                             </li>
                         }
 
